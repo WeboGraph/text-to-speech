@@ -8,7 +8,6 @@ function speak (msg, voice) {
         utterThis.voice = voice;
         utterThis.onend = () => resolve('SpeechSynthesisUtterance.onend');
         utterThis.onerror = () => reject('SpeechSynthesisUtterance.onerror');
-    
         synth.speak(utterThis);
     })
 }
@@ -26,10 +25,7 @@ function init () {
             submitButton.disabled = true;
             speak(text, voice)
                 .catch(console.log)
-                .finally(_ => {
-                    submitButton.disabled = false;
-                    console.log(submitButton);
-                });
+                .finally(_ => submitButton.disabled = false);
         }
     });
 }
