@@ -6,8 +6,8 @@ function speak (msg, voice) {
     
         const utterThis = new SpeechSynthesisUtterance(msg);
         utterThis.voice = voice;
-        utterThis.onend = () => resolve('SpeechSynthesisUtterance.onend');
-        utterThis.onerror = () => reject('SpeechSynthesisUtterance.onerror');
+        utterThis.onend = () => resolve('Synth finished speaking!');
+        utterThis.onerror = () => reject('Synth has an error! Fuck off!');
         synth.speak(utterThis);
     })
 }
@@ -24,7 +24,7 @@ function init () {
         if (text.length > 0) {
             submitButton.disabled = true;
             speak(text, voice)
-                .catch(console.log)
+                .catch(console.error)
                 .finally(_ => submitButton.disabled = false);
         }
     });
