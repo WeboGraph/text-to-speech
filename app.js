@@ -12,10 +12,24 @@ function speak (msg, voice) {
     })
 }
 
+function textFromUrl () {
+    const split = location.href.split('?');
+
+    if (split.length < 2) return;
+
+    const query = split.reverse()[0].split('&').map(v => v.split('='));
+    const text = query.find(q => q[0] === 'text');
+
+    return (text[1]) ? decodeURIComponent(text[1]) : false;
+}
+
 function init () {
     const lang = 'de-DE';
     const form = document.getElementById('form');
     const submitButton = form.querySelector('button[type=submit]');
+    const text = textFromUrl();
+
+    if (text) form.text.value = text;
 
     form.addEventListener('submit', evt => evt.preventDefault());
     submitButton.addEventListener('click', () => {
