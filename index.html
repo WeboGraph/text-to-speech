@@ -9,7 +9,18 @@
 </head>
 <body>
     <form id="form">
-        <textarea name="text" id="input" rows="4">Arschkrampentheo Krause</textarea>
+        <div class="form-element">
+            <label for="text">Texteingabe</label>
+            <textarea name="text" id="text" rows="4">Arschkrampentheo Krause</textarea>
+        </div>
+        <div class="form-element">
+            <label for="rate">Rate</label>
+            <input type="range" name="rate" id="rate" min=".5" max="2" step=".1" value="1">
+        </div>
+        <div class="form-element">
+            <label for="pitch">Pitch</label>
+            <input type="range" name="pitch" id="pitch" min="0" max="2" step=".1" value="1">
+        </div>
         <button type="submit">Mach's Maul auf!</button>
     </form>
 </body>

@@ -26,6 +26,11 @@ body {
     text-align: center;
 }
 
+#form .form-element > * {
+    margin-bottom: 1rem;
+    width: 100%;
+}
+
 #form textarea {
     border-color: var(--color-dark);
     resize: vertical;
